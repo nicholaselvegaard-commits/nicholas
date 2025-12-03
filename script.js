@@ -1,3 +1,8 @@
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("sw.js").catch((err) => {
+    console.error("Service worker-feil:", err);
+  });
+}
 const suggestions = [
   "Send en melding til noen og spør hvordan de egentlig har det.",
   "Plukk opp søppel ute, selv om det ikke er ditt.",
