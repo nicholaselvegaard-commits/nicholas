@@ -6,147 +6,104 @@
 
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background-color: #111827;
-  color: #e5e7eb;
-  line-height: 1.5;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #fee2e2, #e0f2fe, #dcfce7);
+  color: #111827;
+  overflow: hidden;
 }
 
-.header {
-  text-align: center;
-  padding: 24px 16px;
-  border-bottom: 1px solid #374151;
-  background: radial-gradient(circle at top, #1f2933, #020617);
+/* flytende emoji-ikoner i bakgrunnen */
+.background-icons {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
 }
 
-.header h1 {
-  font-size: 2rem;
-  margin-bottom: 6px;
+.background-icons span {
+  position: absolute;
+  font-size: 2.2rem;
+  opacity: 0.35;
+  animation: float 18s linear infinite;
 }
 
-.header p {
-  font-size: 0.95rem;
-  opacity: 0.8;
+.background-icons span:nth-child(1) { top: 8%;  left: 12%; animation-duration: 22s; }
+.background-icons span:nth-child(2) { top: 70%; right: 15%; animation-duration: 19s; }
+.background-icons span:nth-child(3) { top: 50%; left: 5%;  animation-duration: 24s; }
+.background-icons span:nth-child(4) { top: 20%; right: 8%; animation-duration: 20s; }
+.background-icons span:nth-child(5) { bottom: 10%; left: 40%; animation-duration: 26s; }
+.background-icons span:nth-child(6) { bottom: 25%; right: 30%; animation-duration: 21s; }
+
+@keyframes float {
+  0%   { transform: translateY(0px) translateX(0px); }
+  50%  { transform: translateY(-20px) translateX(10px); }
+  100% { transform: translateY(0px) translateX(0px); }
 }
 
-.container {
-  max-width: 800px;
-  margin: 24px auto 40px;
-  padding: 0 16px;
-}
+/* selve appen */
 
-.section {
-  background-color: #020617;
-  border: 1px solid #1f2937;
-  border-radius: 10px;
-  padding: 16px 18px;
-  margin-bottom: 16px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
-}
-
-.section h2 {
-  font-size: 1.2rem;
-  margin-bottom: 8px;
-}
-
-.section p {
-  font-size: 0.95rem;
-}
-
-#suggestion-text {
-  margin-bottom: 10px;
-  opacity: 0.9;
-}
-
-label {
-  display: block;
-  font-size: 0.9rem;
-  margin-bottom: 6px;
-}
-
-input[type="text"] {
-  width: 100%;
-  padding: 10px 12px;
-  border-radius: 8px;
-  border: 1px solid #374151;
-  background-color: #020617;
-  color: #e5e7eb;
-  margin-bottom: 10px;
-  font-size: 0.95rem;
-}
-
-input[type="text"]::placeholder {
-  color: #6b7280;
-}
-
-.btn {
-  display: inline-block;
-  padding: 8px 14px;
-  border-radius: 999px;
-  border: none;
-  cursor: pointer;
-  font-size: 0.95rem;
-  font-weight: 500;
-  background: #22c55e;
-  color: #022c22;
-  transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.15s ease;
-}
-
-.btn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 8px 18px rgba(34, 197, 94, 0.35);
-  background: #16a34a;
-}
-
-.btn:active {
-  transform: translateY(0);
-  box-shadow: none;
-}
-
-.btn-secondary {
-  background: #4b5563;
-  color: #e5e7eb;
-  margin-top: 8px;
-}
-
-.btn-secondary:hover {
-  background: #6b7280;
-  box-shadow: 0 8px 18px rgba(55, 65, 81, 0.35);
-}
-
-.action-list {
-  list-style: none;
-  margin-top: 8px;
-}
-
-.action-item {
-  padding: 8px 10px;
-  border-radius: 8px;
-  border: 1px solid #1f2937;
-  background-color: #020617;
-  font-size: 0.9rem;
+.app {
+  position: relative;
+  z-index: 1; /* over ikonene */
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  gap: 2px;
-}
-
-.action-item + .action-item {
-  margin-top: 6px;
-}
-
-.action-date {
-  font-size: 0.75rem;
-  opacity: 0.7;
-}
-
-.small {
-  font-size: 0.8rem;
-  opacity: 0.7;
-}
-
-.footer {
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
   text-align: center;
-  padding: 16px;
-  font-size: 0.75rem;
-  color: #9ca3af;
-  border-top: 1px solid #1f2937;
+}
+
+.app-header h1 {
+  font-size: 2.4rem;
+  letter-spacing: 0.05em;
+}
+
+.tagline {
+  margin-top: 6px;
+  font-size: 0.98rem;
+  color: #4b5563;
+}
+
+.hero {
+  margin-top: 26px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+/* stor knapp midt på skjermen */
+
+.goodie-btn {
+  border: none;
+  border-radius: 999px;
+  padding: 16px 32px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: radial-gradient(circle at top left, #f97316, #ec4899);
+  color: #ffffff;
+  box-shadow: 0 18px 35px rgba(236, 72, 153, 0.35);
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.12s ease,
+    filter 0.12s ease;
+}
+
+.goodie-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  filter: brightness(1.05);
+  box-shadow: 0 20px 40px rgba(236, 72, 153, 0.45);
+}
+
+.goodie-btn:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 10px 25px rgba(236, 72, 153, 0.3);
+}
+
+.suggestion {
+  max-width: 420px;
+  font-size: 1rem;
+  color: #111827;
 }
