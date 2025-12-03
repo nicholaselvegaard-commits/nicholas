@@ -3,342 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>1 ting i dag</title>
+  <title>goodiestoday</title>
   <link rel="stylesheet" href="style.css">
 </head>
-  <link rel="manifest" href="manifest.webmanifest">
 <body>
-  <header class="header">
-    <h1>1 ting i dag</h1>
-    <p>En liten handling hver dag. For mennesker, for deg selv, for verden.</p>
-  </header>
+  <!-- flytende ikoner i bakgrunnen -->
+  <div class="background-icons">
+    <span>✨</span>
+    <span>💪</span>
+    <span>🌱</span>
+    <span>❤️</span>
+    <span>🔥</span>
+    <span>😊</span>
+  </div>
 
-  <main class="container">
-    <section class="section">
-      <h2>Hvorfor?</h2>
-      <p>
-        Verden blir ikke bedre av store taler, men av små handlinger som skjer hver dag.
-        Denne siden er laget for én enkel ting: at du faktisk gjør noe bra i dag – og i morgen.
-      </p>
-    </section>
+  <main class="app">
+    <header class="app-header">
+      <h1>goodiestoday</h1>
+      <p class="tagline">Trykk på knappen og få en goodie to do today.</p>
+    </header>
 
-    <section class="section">
-      <h2>Forslag til dagens handling</h2>
-      <p id="suggestion-text">
-        Trykk på knappen under for et tilfeldig forslag.
-      </p>
-      <button id="new-suggestion-btn" class="btn">
-        Gi meg et forslag
+    <section class="hero">
+      <button id="goodie-btn" class="goodie-btn">
+        Gi meg en goodie
       </button>
-    </section>
-
-    <section class="section">
-      <h2>Hva gjorde du i dag?</h2>
-      <form id="action-form">
-        <label for="action-input">
-          Skriv kort hva du gjorde (eller vil gjøre) i dag:
-        </label>
-        <input
-          id="action-input"
-          type="text"
-          placeholder="Eksempel: Ringte en venn som hadde det tungt"
-          autocomplete="off"
-        >
-        <button type="submit" class="btn">
-          Lagre dagens handling
-        </button>
-      </form>
-      <p class="small">
-        Handlingene blir lagret i nettleseren din (kun på din enhet).
+      <p id="suggestion-text" class="suggestion">
+        Trykk på knappen for å få noe å gjøre i dag.
       </p>
-    </section>
-
-    <section class="section">
-      <h2>Min logg over gode handlinger</h2>
-      <ul id="action-list" class="action-list">
-        <!-- fylles fra JavaScript -->
-      </ul>
-      <button id="clear-btn" class="btn btn-secondary">
-        Nullstill loggen
-      </button>
     </section>
   </main>
-
-  <footer class="footer">
-    <small>
-      Laget for å gjøre verden litt mindre shitty, én handling om gangen.
-    </small>
-  </footer>
 
   <script src="script.js"></script>
 </body>
 </html>
-2. style.css
-Lag filen style.css og lim inn:
-
-css
-Kopier kode
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background-color: #111827;
-  color: #e5e7eb;
-  line-height: 1.5;
-}
-
-.header {
-  text-align: center;
-  padding: 24px 16px;
-  border-bottom: 1px solid #374151;
-  background: radial-gradient(circle at top, #1f2933, #020617);
-}
-
-.header h1 {
-  font-size: 2rem;
-  margin-bottom: 6px;
-}
-
-.header p {
-  font-size: 0.95rem;
-  opacity: 0.8;
-}
-
-.container {
-  max-width: 800px;
-  margin: 24px auto 40px;
-  padding: 0 16px;
-}
-
-.section {
-  background-color: #020617;
-  border: 1px solid #1f2937;
-  border-radius: 10px;
-  padding: 16px 18px;
-  margin-bottom: 16px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
-}
-
-.section h2 {
-  font-size: 1.2rem;
-  margin-bottom: 8px;
-}
-
-.section p {
-  font-size: 0.95rem;
-}
-
-#suggestion-text {
-  margin-bottom: 10px;
-  opacity: 0.9;
-}
-
-label {
-  display: block;
-  font-size: 0.9rem;
-  margin-bottom: 6px;
-}
-
-input[type="text"] {
-  width: 100%;
-  padding: 10px 12px;
-  border-radius: 8px;
-  border: 1px solid #374151;
-  background-color: #020617;
-  color: #e5e7eb;
-  margin-bottom: 10px;
-  font-size: 0.95rem;
-}
-
-input[type="text"]::placeholder {
-  color: #6b7280;
-}
-
-.btn {
-  display: inline-block;
-  padding: 8px 14px;
-  border-radius: 999px;
-  border: none;
-  cursor: pointer;
-  font-size: 0.95rem;
-  font-weight: 500;
-  background: #22c55e;
-  color: #022c22;
-  transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.15s ease;
-}
-
-.btn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 8px 18px rgba(34, 197, 94, 0.35);
-  background: #16a34a;
-}
-
-.btn:active {
-  transform: translateY(0);
-  box-shadow: none;
-}
-
-.btn-secondary {
-  background: #4b5563;
-  color: #e5e7eb;
-  margin-top: 8px;
-}
-
-.btn-secondary:hover {
-  background: #6b7280;
-  box-shadow: 0 8px 18px rgba(55, 65, 81, 0.35);
-}
-
-.action-list {
-  list-style: none;
-  margin-top: 8px;
-}
-
-.action-item {
-  padding: 8px 10px;
-  border-radius: 8px;
-  border: 1px solid #1f2937;
-  background-color: #020617;
-  font-size: 0.9rem;
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.action-item + .action-item {
-  margin-top: 6px;
-}
-
-.action-date {
-  font-size: 0.75rem;
-  opacity: 0.7;
-}
-
-.small {
-  font-size: 0.8rem;
-  opacity: 0.7;
-}
-
-.footer {
-  text-align: center;
-  padding: 16px;
-  font-size: 0.75rem;
-  color: #9ca3af;
-  border-top: 1px solid #1f2937;
-}
-3. script.js
-Lag filen script.js og lim inn:
-
-javascript
-Kopier kode
-const suggestions = [
-  "Send en melding til noen og spør hvordan de egentlig har det.",
-  "Plukk opp søppel ute, selv om det ikke er ditt.",
-  "Gi et ekte kompliment til en person i dag.",
-  "Skru av lys du ikke bruker, spar litt strøm.",
-  "Tilgi noen for noe lite du fortsatt går og irriterer deg over.",
-  "Gå en tur uten mobilen og tenk gjennom hva du er takknemlig for.",
-  "Hjelp en venn med noe uten å be om noe tilbake.",
-  "Gi bort klær du ikke bruker lenger.",
-  "Skriv en lapp eller melding med noe fint til et familiemedlem.",
-  "Sett deg et lite mål for denne uka og ta første steg nå."
-];
-
-const suggestionText = document.getElementById("suggestion-text");
-const newSuggestionBtn = document.getElementById("new-suggestion-btn");
-const form = document.getElementById("action-form");
-const input = document.getElementById("action-input");
-const list = document.getElementById("action-list");
-const clearBtn = document.getElementById("clear-btn");
-
-function getStoredActions() {
-  try {
-    const data = localStorage.getItem("good_actions");
-    return data ? JSON.parse(data) : [];
-  } catch (e) {
-    return [];
-  }
-}
-
-function saveActions(actions) {
-  localStorage.setItem("good_actions", JSON.stringify(actions));
-}
-
-function formatDate(dateString) {
-  const date = new Date(dateString);
-  if (Number.isNaN(date.getTime())) return "";
-  return date.toLocaleDateString("no-NO", {
-    year: "numeric",
-    month: "short",
-    day: "numeric"
-  });
-}
-
-function renderActions() {
-  const actions = getStoredActions();
-  list.innerHTML = "";
-
-  if (actions.length === 0) {
-    const emptyLi = document.createElement("li");
-    emptyLi.textContent = "Ingen handlinger lagret enda. Start i dag.";
-    emptyLi.className = "small";
-    list.appendChild(emptyLi);
-    return;
-  }
-
-  actions
-    .slice()
-    .reverse()
-    .forEach(action => {
-      const li = document.createElement("li");
-      li.className = "action-item";
-
-      const textSpan = document.createElement("span");
-      textSpan.textContent = action.text;
-
-      const dateSpan = document.createElement("span");
-      dateSpan.className = "action-date";
-      dateSpan.textContent = formatDate(action.date);
-
-      li.appendChild(textSpan);
-      li.appendChild(dateSpan);
-      list.appendChild(li);
-    });
-}
-
-newSuggestionBtn.addEventListener("click", () => {
-  const randomIndex = Math.floor(Math.random() * suggestions.length);
-  const suggestion = suggestions[randomIndex];
-  suggestionText.textContent = suggestion;
-  input.value = suggestion; // fyll inn feltet for kjapp lagring
-  input.focus();
-});
-
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const value = input.value.trim();
-  if (!value) return;
-
-  const actions = getStoredActions();
-  actions.push({
-    text: value,
-    date: new Date().toISOString()
-  });
-  saveActions(actions);
-  input.value = "";
-  renderActions();
-});
-
-clearBtn.addEventListener("click", () => {
-  const ok = confirm("Er du sikker på at du vil slette hele loggen?");
-  if (!ok) return;
-  localStorage.removeItem("good_actions");
-  renderActions();
-});
-
-// initial render
-renderActions();
