@@ -1,38 +1,40 @@
 <!DOCTYPE html>
-<html lang="no">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>goodiestoday</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Nicholas Enterprises | AI Hook Generator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- flytende ikoner i bakgrunnen -->
-  <div class="background-icons">
-    <span>✨</span>
-    <span>💪</span>
-    <span>🌱</span>
-    <span>❤️</span>
-    <span>🔥</span>
-    <span>😊</span>
-  </div>
 
-  <main class="app">
-    <header class="app-header">
-      <h1>goodiestoday</h1>
-      <p class="tagline">Trykk på knappen og få en goodie to do today.</p>
+    <header>
+        <h1>Nicholas Enterprises</h1>
+        <p class="subtitle">Generate Scroll-Stopping Hooks in Seconds</p>
     </header>
 
-    <section class="hero">
-      <button id="goodie-btn" class="goodie-btn">
-        Gi meg en goodie
-      </button>
-      <p id="suggestion-text" class="suggestion">
-        Trykk på knappen for å få noe å gjøre i dag.
-      </p>
-    </section>
-  </main>
+    <section class="generator">
+        <h2>Free Viral Hook Generator</h2>
 
-  <script src="script.js"></script>
+        <input type="text" id="niche" placeholder="Enter your niche (e.g. fitness)">
+        <input type="text" id="audience" placeholder="Enter your audience (e.g. men 18-25)">
+        <button onclick="generateHooks()">Generate Hooks</button>
+
+        <div id="results"></div>
+    </section>
+
+    <section class="upgrade">
+        <h2>Want Unlimited Hooks?</h2>
+        <p>Upgrade to Pro for advanced formulas and unlimited generations.</p>
+
+        <!-- REPLACE # WITH YOUR STRIPE PAYMENT LINK -->
+        <a href="#" class="upgrade-btn">Upgrade to Pro</a>
+    </section>
+
+    <footer>
+        <p>© 2026 Nicholas Enterprises</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
