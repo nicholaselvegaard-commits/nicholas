@@ -1,109 +1,132 @@
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  min-height: 100vh;
-  background: linear-gradient(135deg, #fee2e2, #e0f2fe, #dcfce7);
-  color: #111827;
-  overflow: hidden;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #0e0e10;
+    color: #ffffff;
 }
 
-/* flytende emoji-ikoner i bakgrunnen */
-.background-icons {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
+header {
+    padding: 80px 20px;
+    text-align: center;
+    background: radial-gradient(circle at top, #1a1a1f, #0e0e10);
 }
 
-.background-icons span {
-  position: absolute;
-  font-size: 2.2rem;
-  opacity: 0.35;
-  animation: float 18s linear infinite;
+h1 {
+    font-size: 42px;
+    margin: 0;
+    letter-spacing: 1px;
 }
 
-.background-icons span:nth-child(1) { top: 8%;  left: 12%; animation-duration: 22s; }
-.background-icons span:nth-child(2) { top: 70%; right: 15%; animation-duration: 19s; }
-.background-icons span:nth-child(3) { top: 50%; left: 5%;  animation-duration: 24s; }
-.background-icons span:nth-child(4) { top: 20%; right: 8%; animation-duration: 20s; }
-.background-icons span:nth-child(5) { bottom: 10%; left: 40%; animation-duration: 26s; }
-.background-icons span:nth-child(6) { bottom: 25%; right: 30%; animation-duration: 21s; }
-
-@keyframes float {
-  0%   { transform: translateY(0px) translateX(0px); }
-  50%  { transform: translateY(-20px) translateX(10px); }
-  100% { transform: translateY(0px) translateX(0px); }
+.subtitle {
+    margin-top: 12px;
+    color: #a0a0a0;
+    font-size: 18px;
 }
 
-/* selve appen */
-
-.app {
-  position: relative;
-  z-index: 1; /* over ikonene */
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 24px 16px;
-  text-align: center;
+.generator {
+    padding: 60px 20px;
+    text-align: center;
 }
 
-.app-header h1 {
-  font-size: 2.4rem;
-  letter-spacing: 0.05em;
+.generator h2 {
+    margin-bottom: 30px;
+    font-size: 28px;
 }
 
-.tagline {
-  margin-top: 6px;
-  font-size: 0.98rem;
-  color: #4b5563;
+input {
+    padding: 14px;
+    margin: 10px;
+    width: 280px;
+    max-width: 90%;
+    border-radius: 10px;
+    border: 1px solid #2a2a2f;
+    background: #1a1a1f;
+    color: white;
+    font-size: 14px;
 }
 
-.hero {
-  margin-top: 26px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 14px;
+input:focus {
+    outline: none;
+    border: 1px solid #00ff99;
 }
 
-/* stor knapp midt på skjermen */
-
-.goodie-btn {
-  border: none;
-  border-radius: 999px;
-  padding: 16px 32px;
-  font-size: 1.05rem;
-  font-weight: 600;
-  cursor: pointer;
-  background: radial-gradient(circle at top left, #f97316, #ec4899);
-  color: #ffffff;
-  box-shadow: 0 18px 35px rgba(236, 72, 153, 0.35);
-  transition:
-    transform 0.12s ease,
-    box-shadow 0.12s ease,
-    filter 0.12s ease;
+button {
+    padding: 14px 30px;
+    margin-top: 15px;
+    border-radius: 10px;
+    border: none;
+    background: linear-gradient(135deg, #00ff99, #00cc77);
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s ease;
 }
 
-.goodie-btn:hover {
-  transform: translateY(-2px) scale(1.02);
-  filter: brightness(1.05);
-  box-shadow: 0 20px 40px rgba(236, 72, 153, 0.45);
+button:hover {
+    transform: scale(1.05);
 }
 
-.goodie-btn:active {
-  transform: translateY(0) scale(0.98);
-  box-shadow: 0 10px 25px rgba(236, 72, 153, 0.3);
+#results {
+    margin-top: 40px;
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
 }
 
-.suggestion {
-  max-width: 420px;
-  font-size: 1rem;
-  color: #111827;
+.hook {
+    background: #1a1a1f;
+    padding: 18px;
+    margin: 12px 0;
+    border-radius: 12px;
+    border: 1px solid #2a2a2f;
+    transition: 0.2s ease;
+}
+
+.hook:hover {
+    border-color: #00ff99;
+    transform: translateY(-3px);
+}
+
+.upgrade {
+    padding: 80px 20px;
+    text-align: center;
+    background: #121214;
+}
+
+.upgrade h2 {
+    font-size: 28px;
+}
+
+.upgrade p {
+    color: #a0a0a0;
+    max-width: 600px;
+    margin: 15px auto;
+}
+
+.upgrade-btn {
+    display: inline-block;
+    padding: 16px 35px;
+    margin-top: 25px;
+    background: linear-gradient(135deg, #ff4d4d, #cc0000);
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: 0.2s ease;
+}
+
+.upgrade-btn:hover {
+    transform: scale(1.05);
+}
+
+footer {
+    padding: 25px;
+    text-align: center;
+    background: #000;
+    color: #666;
+    font-size: 14px;
 }
