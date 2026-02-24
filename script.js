@@ -1,33 +1,47 @@
-function generateHooks() {
+let dailyLimit = 3;
 
-    const niche = document.getElementById("niche").value.trim();
+function scrollToTool() {
+    document.getElementById("tool").scrollIntoView({behavior:"smooth"});
+}
+
+function generateScript() {
+
+    const topic = document.getElementById("topic").value.trim();
     const audience = document.getElementById("audience").value.trim();
     const results = document.getElementById("results");
 
-    if (!niche || !audience) {
+    if (!topic || !audience) {
         alert("Fill in both fields.");
         return;
     }
 
-    const templates = [
-        `Stop scrolling if you're into ${niche}...`,
-        `If you're a ${audience}, this will change how you see ${niche}.`,
-        `Nobody talks about this in ${niche} but...`,
-        `Most ${audience} fail at ${niche} because of this.`,
-        `Before you try ${niche}, watch this.`,
-        `This ${niche} trick is blowing up right now.`,
-        `You're doing ${niche} wrong if you...`,
-        `If you care about ${niche}, read this.`,
-        `The hidden truth about ${niche}.`,
-        `Why ${audience} struggle with ${niche}.`
-    ];
+    let usage = localStorage.getItem("dailyUsage");
+    if (!usage) usage = 0;
 
-    results.innerHTML = "";
+    if (usage >= dailyLimit) {
+        alert("Free limit reached. Upgrade to Pro for unlimited scripts.");
+        return;
+    }
 
-    templates.forEach(text => {
-        const div = document.createElement("div");
-        div.className = "hook";
-        div.innerText = text;
-        results.appendChild(div);
-    });
+    usage++;
+    localStorage.setItem("dailyUsage", usage);
+
+    const hook = `Stop scrolling if you're a ${audience} interested in ${topic}...`;
+
+    const script = `
+HOOK:
+${hook}
+
+BODY:
+Most ${audience} struggle with ${topic} because they focus on the wrong things.
+Here's the one shift that changes everything.
+
+CTA:
+Follow for more ${topic} insights.
+
+HASHTAGS:
+#${topic.replace(" ","")} #growth #viral
+`;
+
+    results.innerHTML = `<div class="script-box">${script}</div>`;
 }
