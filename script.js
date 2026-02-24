@@ -1,22 +1,36 @@
-// du kan endre / legge til dine egne goodies her
-const goodies = [
-  "Send en melding til en person du ikke har snakket med på lenge og sjekk inn.",
-  "Rydd én liten ting: skrivebordet ditt, nattbordet, eller bare gulvet på rommet.",
-  "Gå en 10-minutters tur uten mobilen og tenk på hva du vil få til fremover.",
-  "Gi et ekte kompliment til noen i dag – ikke bare «nice» men noe spesifikt.",
-  "Drikk et stort glass vann og strekk litt på kroppen i 2 minutter.",
-  "Gjør én ting du har utsatt i flere dager. Bare den ene tingen.",
-  "Skriv ned tre ting du er takknemlig for i dag.",
-  "Hjelp en venn med noe lite (lekser, jobb, et problem) uten å be om noe tilbake.",
-  "Skru av alle varsler i 1 time og gjør noe som faktisk gir deg noe.",
-  "Planlegg én ting du skal gjøre i morgen som gjør dagen litt bedre."
-];
+function generateHooks() {
+    const niche = document.getElementById("niche").value;
+    const audience = document.getElementById("audience").value;
+    const resultsDiv = document.getElementById("results");
 
-const button = document.getElementById("goodie-btn");
-const suggestionText = document.getElementById("suggestion-text");
+    if (!niche || !audience) {
+        alert("Please enter both niche and audience.");
+        return;
+    }
 
-button.addEventListener("click", () => {
-  const index = Math.floor(Math.random() * goodies.length);
-  const goodie = goodies[index];
-  suggestionText.textContent = goodie;
-});
+    const templates = [
+        "Stop scrolling if you're into {niche}...",
+        "If you're a {audience}, this will change how you see {niche}.",
+        "Nobody tells you this about {niche}...",
+        "Here’s why most {audience} fail at {niche}...",
+        "You’re doing {niche} wrong if you...",
+        "This is why {audience} struggle with {niche}.",
+        "Before you try {niche}, watch this.",
+        "99% of {audience} don’t know this about {niche}.",
+        "If you care about {niche}, read this.",
+        "This simple {niche} trick changed everything for {audience}."
+    ];
+
+    resultsDiv.innerHTML = "";
+
+    templates.forEach(template => {
+        let hook = template
+            .replace("{niche}", niche)
+            .replace("{audience}", audience);
+
+        const div = document.createElement("div");
+        div.className = "hook";
+        div.innerText = hook;
+        resultsDiv.appendChild(div);
+    });
+}
