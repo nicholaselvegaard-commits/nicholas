@@ -1,36 +1,33 @@
 function generateHooks() {
-    const niche = document.getElementById("niche").value;
-    const audience = document.getElementById("audience").value;
-    const resultsDiv = document.getElementById("results");
+
+    const niche = document.getElementById("niche").value.trim();
+    const audience = document.getElementById("audience").value.trim();
+    const results = document.getElementById("results");
 
     if (!niche || !audience) {
-        alert("Please enter both niche and audience.");
+        alert("Fill in both fields.");
         return;
     }
 
     const templates = [
-        "Stop scrolling if you're into {niche}...",
-        "If you're a {audience}, this will change how you see {niche}.",
-        "Nobody tells you this about {niche}...",
-        "Here’s why most {audience} fail at {niche}...",
-        "You’re doing {niche} wrong if you...",
-        "This is why {audience} struggle with {niche}.",
-        "Before you try {niche}, watch this.",
-        "99% of {audience} don’t know this about {niche}.",
-        "If you care about {niche}, read this.",
-        "This simple {niche} trick changed everything for {audience}."
+        `Stop scrolling if you're into ${niche}...`,
+        `If you're a ${audience}, this will change how you see ${niche}.`,
+        `Nobody talks about this in ${niche} but...`,
+        `Most ${audience} fail at ${niche} because of this.`,
+        `Before you try ${niche}, watch this.`,
+        `This ${niche} trick is blowing up right now.`,
+        `You're doing ${niche} wrong if you...`,
+        `If you care about ${niche}, read this.`,
+        `The hidden truth about ${niche}.`,
+        `Why ${audience} struggle with ${niche}.`
     ];
 
-    resultsDiv.innerHTML = "";
+    results.innerHTML = "";
 
-    templates.forEach(template => {
-        let hook = template
-            .replace("{niche}", niche)
-            .replace("{audience}", audience);
-
+    templates.forEach(text => {
         const div = document.createElement("div");
         div.className = "hook";
-        div.innerText = hook;
-        resultsDiv.appendChild(div);
+        div.innerText = text;
+        results.appendChild(div);
     });
 }
